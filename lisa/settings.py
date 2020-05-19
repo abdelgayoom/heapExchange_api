@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import json
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -19,8 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
+with open('/etc/secret_key.json') as secretFile:
+    Secret_data = json.load(secretFile)
+
+
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'h-0rgs*jy-r(rf2i*!1x(+#!zx!=bxlx3s@l1znna)$i7h&^fe'
+SECRET_KEY = Secret_data.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,6 +42,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites'
+    # external app
+    'rest_framework',
+    'rest_framework.authtoken',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'rest_auth',
+    'rest_auth.registration',
+    # 'allauth.socialaccount.providers.facebook',
+    # local app
 ]
 
 MIDDLEWARE = [
@@ -50,6 +66,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'lisa.urls'
+SITE_ID = 1
 
 TEMPLATES = [
     {
@@ -118,3 +135,24 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}
+
+ACCOUNT_AUTHENTICATION_METHOD = 'username'
+ACCOUNT_EMAIL_VERIFICATION = 'optional'
+
+# settings for the Email
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = Secret_data.get('EMAIL_HOST')
+EMAIL_PORT = Secret_data.get('EMAIL_PORT')
+EMAIL_HOST_USER = Secret_data.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = Secret_data.get('EMAIL_HOST_PASSWORD')
+EMAIL_USE_TLS = True
