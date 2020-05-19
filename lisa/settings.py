@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     # 'allauth.socialaccount.providers.facebook',
     # local app
     'api.apps.ApiConfig',
+    'blog.apps.BlogConfig',
 
 ]
 
