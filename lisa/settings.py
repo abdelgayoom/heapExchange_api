@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites'
+    'django.contrib.sites',
     # external app
     'rest_framework',
     'rest_framework.authtoken',
@@ -53,6 +53,8 @@ INSTALLED_APPS = [
     'rest_auth.registration',
     # 'allauth.socialaccount.providers.facebook',
     # local app
+    'api.apps.ApiConfig',
+
 ]
 
 MIDDLEWARE = [
@@ -146,9 +148,10 @@ REST_FRAMEWORK = {
     )
 }
 
-ACCOUNT_AUTHENTICATION_METHOD = 'username'
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_VERIFICATION = 'optional'
-
+ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_EMAIL_REQUIRED = True
 # settings for the Email
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = Secret_data.get('EMAIL_HOST')
