@@ -149,14 +149,16 @@ REST_FRAMEWORK = {
     )
 }
 
-ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_AUTHENTICATION_METHOD = 'username'
 ACCOUNT_EMAIL_VERIFICATION = 'optional'
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_EMAIL_REQUIRED = True
 # settings for the Email
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+'''
 EMAIL_HOST = Secret_data.get('EMAIL_HOST')
 EMAIL_PORT = Secret_data.get('EMAIL_PORT')
 EMAIL_HOST_USER = Secret_data.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = Secret_data.get('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = True
+'''
