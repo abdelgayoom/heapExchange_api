@@ -2,7 +2,7 @@
 ### overview 
 
  api version for [heapExchange](https://github.com/abdelgayoom/heapExchange)
- 
+ later i'm gonna make single page application for the frontend with React and Redux
 
 
 ### installation
@@ -20,7 +20,38 @@ cd heapExchange_api
 pip3 install -r requirements.txt
 ~~~~
 
-#### testing 
+#### run
 ~~~~
 python3 manage.py runserver
+~~~~
+
+#### endpoints
+
+##### create new account (register)
+~~~~
+api/v1/auth/register
+~~~~
+##### login
+~~~~
+api/v1/auth/login
+~~~~
+##### logout 
+~~~~
+api/v1/auth/logout
+~~~~
+##### post list
+~~~~
+api/v1/post
+~~~~
+##### posts detail
+~~~~
+api/vi/post/{postID}
+~~~~
+##### questions list
+~~~~
+api/v1/question
+~~~~
+##### question detail
+~~~~
+api/v1/question/{questionID}
 ~~~~
