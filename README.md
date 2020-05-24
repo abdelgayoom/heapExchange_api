@@ -39,27 +39,27 @@ POST  api/v1/auth/login
 ~~~~
 POST  api/v1/auth/logout
 ~~~~
-##### users list
+##### list users or create one
 ~~~~
-GET   api/v1/users
+GET POST HEAD OPTIONS   api/v1/users
 ~~~~
-##### user detail
+##### get user detail or update it or delete it 
 ~~~~
-GET api/v1/users/{userID}
+GET PUT PATCH DELETE HEAD OPTIONS api/v1/users/{userID}
 ~~~~
-##### post list
+##### get list of the posts or create one
 ~~~~
-GET POST PUT DELETE   api/v1/post
+GET POST HEAD OPTIONS   api/v1/post
 ~~~~
-##### posts detail
+##### get post detail or update it or delete it
 ~~~~
-GET api/vi/post/{postID}
+GET PUT PATCH DELETE HEAD OPTIONS api/vi/post/{postID}
 ~~~~
-##### questions list
+##### get questions list or create one
 ~~~~
-GET POST PUT DELETE   api/v1/question
+GET POST HEAD OPTIONS   api/v1/question
 ~~~~
-##### question detail
+##### get question detail or update it or delete it
 ~~~~
-GET  api/v1/question/{questionID}
+GET PUT PATCH DELETE HEAD OPTIONS  api/v1/question/{questionID}
 ~~~~
