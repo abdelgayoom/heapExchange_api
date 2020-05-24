@@ -29,37 +29,37 @@ python3 manage.py runserver
 
 ##### create new account (register)
 ~~~~
-api/v1/auth/register
+POST  api/v1/auth/register
 ~~~~
 ##### login
 ~~~~
-api/v1/auth/login
+POST  api/v1/auth/login
 ~~~~
 ##### logout 
 ~~~~
-api/v1/auth/logout
+POST  api/v1/auth/logout
 ~~~~
 ##### users list
 ~~~~
-api/v1/users
+GET   api/v1/users
 ~~~~
 ##### user detail
 ~~~~
-api/v1/users/{userID}
+GET api/v1/users/{userID}
 ~~~~
 ##### post list
 ~~~~
-api/v1/post
+GET POST PUT DELETE   api/v1/post
 ~~~~
 ##### posts detail
 ~~~~
-api/vi/post/{postID}
+GET api/vi/post/{postID}
 ~~~~
 ##### questions list
 ~~~~
-api/v1/question
+GET POST PUT DELETE   api/v1/question
 ~~~~
 ##### question detail
 ~~~~
-api/v1/question/{questionID}
+GET  api/v1/question/{questionID}
 ~~~~
